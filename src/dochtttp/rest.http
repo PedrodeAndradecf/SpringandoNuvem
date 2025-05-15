@@ -8,3 +8,15 @@ Content-Type: application/json
   "descricao": "Comprar o mais macio la no Pão de Açucar",
   "status": "Pendente"
 }
+
+### INnsere uma nova task
+POST http://localhost:8080/task
+Content-Type: application/json
+
+{
+"titulo": "Comprar Papel Higienico",
+"descricao": "Comprar o mais macio la no Pão de Açucar",
+"status": "Pendente"
+}
+
+

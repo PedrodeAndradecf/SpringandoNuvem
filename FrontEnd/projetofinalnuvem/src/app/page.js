@@ -2,25 +2,23 @@
 
 import { useState } from 'react'
 
-export default function CriarTarefa() {
+export default function NovaTarefa() {
     const [titulo, setTitulo] = useState('')
     const [descricao, setDescricao] = useState('')
-    const [status, setStatus] = useState('')
 
     const criarTarefa = async () => {
         try {
             const resposta = await fetch('http://localhost:8080/task', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ titulo, descricao, status })
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ titulo, descricao })
             })
 
-            if (!resposta.ok) throw new Error('Erro ao criar tarefa')
-
+            const dados = await resposta.json()
             alert('Tarefa criada com sucesso!')
-            setTitulo('')
-            setDescricao('')
-            setStatus('')
+            console.log(dados)
         } catch (erro) {
             alert('Erro ao criar tarefa')
             console.error(erro)
@@ -29,30 +27,20 @@ export default function CriarTarefa() {
 
     return (
         <div style={{ padding: 20 }}>
-            <h1>Criar Nova Tarefa</h1>
-
+            <h1>Criar nova tarefa</h1>
             <input
                 placeholder="Título"
                 value={titulo}
                 onChange={(e) => setTitulo(e.target.value)}
                 style={{ display: 'block', marginBottom: 10 }}
             />
-
             <textarea
                 placeholder="Descrição"
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}
                 style={{ display: 'block', marginBottom: 10 }}
             />
-
-            <input
-                placeholder="Status"
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-                style={{ display: 'block', marginBottom: 10 }}
-            />
-
-            <button onClick={criarTarefa}>Criar</button>
+            <button onClick={criarTarefa}>Enviar</button>
         </div>
     )
 }

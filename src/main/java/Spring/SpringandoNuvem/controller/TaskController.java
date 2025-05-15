@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/task")
 public class TaskController {
@@ -24,6 +25,24 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.CREATED).body(taskSalva);
     }
 
+    @GetMapping
+    public ResponseEntity<List<TaskResponseDTO>> listarTodos(){
+        return ResponseEntity.ok(taskService.listarTodos());
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<TaskResponseDTO> deletar(@PathVariable Long id) {
+        TaskResponseDTO dto = taskService.deletar(id);
+        return ResponseEntity.ok(dto);
+    }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TaskResponseDTO> atualizar(@PathVariable Long id, @RequestBody TaskDTO dto) {
+        TaskResponseDTO taskAtualizada = taskService.atualizar(id, dto);
+        return ResponseEntity.ok(taskAtualizada);
+    }
 
 
 }

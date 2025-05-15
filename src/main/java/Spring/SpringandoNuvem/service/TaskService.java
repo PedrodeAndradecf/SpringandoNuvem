@@ -46,4 +46,37 @@ public class TaskService {
         dto.setStatus(task.getStatus());
         return dto;
     }
+
+
+
+    public TaskResponseDTO deletar(Long id) {
+        Task task = taskrepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tarefa não encontrada"));
+
+        taskrepository.deleteById(id);
+        return toDTO(task);
+    }
+
+
+
+
+
+    public TaskResponseDTO atualizar(Long id, TaskDTO dto) {
+        Task task = taskrepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tarefa não encontrada"));
+
+        task.setTitulo(dto.getTitulo());
+        task.setDescricao(dto.getDescricao());
+        task.setStatus(dto.getStatus());
+
+        taskrepository.save(task);
+        return toDTO(task); //
+    }
+
+
+
+
+
+
+
 }

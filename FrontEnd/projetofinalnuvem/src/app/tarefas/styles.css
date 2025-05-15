@@ -1,41 +1,41 @@
 .container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    min-height: 100vh;
     align-items: center;
-    background: #2c3e50;
+    height: 100vh;
+    background-color: #e8e8e8;
 }
 
-.box {
-    position: relative;
-    width: 280px;
-    height: 360px;
-    background: #1c1c1c;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.5s;
+.card {
+    background-color: white;
+    padding: 1.5em;
+    border-radius: 15px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    width: 300px;
+    text-align: center;
+}
+
+.card h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+}
+
+.card button {
+    display: block;
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
-.box span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #ff0057, #e64a19);
-    clip-path: circle(150px at 80% 20%);
-    transition: 0.5s;
+.card button:hover {
+    background-color: #2563eb;
+    transform: scale(1.03);
 }
-
-.box:hover span {
-    clip-path: circle(300px at 80% -20%);
-}
-
-.box .content {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
