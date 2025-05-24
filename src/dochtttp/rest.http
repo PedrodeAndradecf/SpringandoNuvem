@@ -14,7 +14,7 @@ POST http://localhost:8080/task
 Content-Type: application/json
 
 {
-"titulo": "Comprar MOLHO",
+"titulo": "Comprar agua",
 "descricao": "no Pão de Açucar",
 "status": "Pendente"
 }
