@@ -9,7 +9,7 @@ export default function CriarTarefa() {
 
     const criarTarefa = async () => {
         try {
-            const resposta = await fetch('http://localhost:8080/task', {
+            const resposta = await fetch('http://3.216.147.169:8080/task', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ titulo, descricao, status })

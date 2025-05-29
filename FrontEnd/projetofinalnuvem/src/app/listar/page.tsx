@@ -17,14 +17,14 @@ export default function ListarTarefas() {
     }, [])
 
     const carregarTarefas = async () => {
-        const resposta = await fetch('http://localhost:8080/task')
+        const resposta = await fetch('http://3.216.147.169:8080/task')
         const dados = await resposta.json()
         setTarefas(dados)
     }
 
     const deletarTarefa = async (id: number) => {
         try {
-            const resposta = await fetch(`http://localhost:8080/task/${id}`, {
+            const resposta = await fetch(`http://3.216.147.169:8080/task/${id}`, {
                 method: 'DELETE'
             })
 

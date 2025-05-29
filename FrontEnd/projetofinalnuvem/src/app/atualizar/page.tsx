@@ -19,7 +19,7 @@ export default function AtualizarTarefa() {
     }, [])
 
     const carregarTarefas = async () => {
-        const res = await fetch('http://localhost:8080/task')
+        const res = await fetch('http://3.216.147.169:8080/task')
         const data = await res.json()
         setTarefas(data)
     }
@@ -32,7 +32,7 @@ export default function AtualizarTarefa() {
     const salvar = async () => {
         if (editando === null) return
 
-        await fetch(`http://localhost:8080/task/${editando}`, {
+        await fetch(`http://3.216.147.169:8080/task/${editando}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(form)
