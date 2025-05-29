@@ -31,3 +31,5 @@ Nesse projeto criamos uma aplicação que tem o foco em facilitar o processo de 
 sudo docker run -p 8080:8080
 #FRONTEND:
 sudo docker run -p 80:3000```
+
+*Obs: Para executar localmente é preciso alterar os endereços de ip relacionado ao backend(fetch) e o endereço do banco de dados da AWS, tendo em vista que todos estão configurados para executar no ambiente configurado da nuvem*
