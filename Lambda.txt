@@ -1,0 +1,18 @@
+
+export const handler = async () => {
+  const url   = "http://3.216.147.169:8080/task";   
+  const resp  = await fetch(url);
+  const tasks = await resp.json();                  
+
+  const concluidas = tasks.filter(t => t.status === "Concluido");
+  
+  return {
+    statusCode: 200,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      total:       tasks.length,                    
+      concluidas:  concluidas.length,              
+      titulosConcluidas: concluidas.map(t => t.titulo) 
+    })
+  };
+};
